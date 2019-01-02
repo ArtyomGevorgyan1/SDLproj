@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 14)
 
 
 
-add_executable(untitled1 main.cpp Game.cpp Game.h TextureManager.cpp TextureManager.h GameObject.cpp GameObject.h Player.cpp Player.h Enemy.cpp Enemy.h LoaderParams.cpp LoaderParams.h SDLGameObject.cpp SDLGameObject.h)
+add_executable(untitled1 main.cpp Game.cpp Game.h TextureManager.cpp TextureManager.h GameObject.cpp GameObject.h Player.cpp Player.h Enemy.cpp Enemy.h LoaderParams.cpp LoaderParams.h SDLGameObject.cpp SDLGameObject.h Vector2D.cpp Vector2D.h)
 
 INCLUDE(FindPkgConfig)
 
