@@ -7,16 +7,17 @@
 
 
 #include "GameObject.h"
+#include "SDLGameObject.h"
 
-class Enemy : public GameObject
+class Enemy : public SDLGameObject
 {
 public:
 
-    void load(int x, int y, int width, int height, std::string
-    textureID);
-    void draw(SDL_Renderer* pRenderer);
-    void update();
-    void clean();
+    explicit Enemy(const LoaderParams* pParams);
+
+    void draw() override;
+    void update() override;
+    void clean() override;
 };
 
 

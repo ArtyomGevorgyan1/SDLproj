@@ -6,15 +6,17 @@
 #define UNTITLED1_PLAYER_H
 
 #include "GameObject.h"
+#include "SDLGameObject.h"
 
-class Player : public GameObject
+class Player : public SDLGameObject
 {
 public:
 
-    void load(int x, int y, int width, int height, std::string
-    textureID);
-    void draw(SDL_Renderer* pRenderer);
-    void update();
-    void clean();
+    explicit Player(const LoaderParams* pParams);
+
+    void draw() override;
+    void update() override;
+    void clean() override;
 };
+
 #endif //UNTITLED1_PLAYER_H
