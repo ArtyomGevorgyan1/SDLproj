@@ -26,6 +26,11 @@ public:
     void handleEvents();
     void clean();
 
+    void quit() {
+        //SDL_Quit();
+        m_bRunning = false;
+    }
+
     bool running() { return m_bRunning; }
 
     static Game* Instance()
@@ -50,6 +55,7 @@ private:
 
     // bool to make sure the game is supposed to go on
     bool m_bRunning;
+
     std::vector<SDLGameObject*> m_gameObjects;
 
     // singleton part

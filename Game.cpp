@@ -3,6 +3,7 @@
 //
 
 #include "Game.h"
+#include "InputHandler.h"
 #include <iostream>
 
 Game* Game::s_pInstance = 0;
@@ -51,6 +52,9 @@ bool Game::init(const char* title, int xpos, int ypos, int width, int height, in
                 m_gameObjects.push_back(new Player(new LoaderParams(100, 100, 128, 82, "animate")));
 
                 m_gameObjects.push_back(new Enemy(new LoaderParams(300, 300, 128, 82, "animate")));
+
+                TheInputHandler::Instance()->initialiseJoysticks();
+
 
                 if(!TheTextureManager::Instance()->load("../Assets/animate-alpha.png", "animate", m_pRenderer))
                 {
@@ -101,16 +105,16 @@ void Game::render()
 
 }
 
-
-
 void Game::clean()
 {
     std::cout << "cleaning game\n";
     SDL_DestroyWindow(m_pWindow);
     SDL_DestroyRenderer(m_pRenderer);
+    TheInputHandler::Instance()->clean();
     SDL_Quit();
 }
 
+/*
 void Game::handleEvents()
 {
     SDL_Event event;
@@ -126,4 +130,11 @@ void Game::handleEvents()
                 break;
         }
     }
+}
+*/
+
+
+void Game::handleEvents()
+{
+    TheInputHandler::Instance()->update();
 }
