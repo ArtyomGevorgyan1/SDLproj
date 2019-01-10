@@ -72,8 +72,7 @@ void MenuState::render()
 void MenuState::s_menuToPlay()
 {
     TheGame::Instance()->getStateMachine()->changeState(new PlayState());
-
-
+    std::cout << "FAIL\n";
 }
 
 void MenuState::s_exitFromMenu()

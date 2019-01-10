@@ -37,22 +37,22 @@ void SDLGameObject::draw()
 {
     if(m_velocity.getX() > 0)
     {
-        std::cout << "TRYING TO RENDER\n";
+        //std::cout << "TRYING TO RENDER\n";
         TextureManager::Instance()->drawFrame(m_textureID,
                                               (Uint32)m_position.getX(), (Uint32)m_position.getY(),
                                               m_width, m_height, m_currentRow, m_currentFrame,
                                               TheGame::Instance()->getRenderer(),SDL_FLIP_HORIZONTAL);
-        std::cout << "SUCCESS\n";
+        //std::cout << "SUCCESS\n";
     }
     else
     {
-        std::cout << "TRYING TO RENDER\n";
+        //std::cout << "TRYING TO RENDER\n";
 
         TextureManager::Instance()->drawFrame(m_textureID,
                                               (Uint32)m_position.getX(), (Uint32)m_position.getY(),
                                               m_width, m_height, m_currentRow, m_currentFrame,
                                               TheGame::Instance()->getRenderer());
-        std::cout << "SUCCESS\n";
+        //std::cout << "SUCCESS\n";
 
     }
 }
