@@ -56,7 +56,7 @@ bool MenuState::onExit()
 
 void MenuState::update()
 {
-    for(int i = 0; i < m_gameObjects.size(); i++)
+    for(int i = m_gameObjects.size() -1 ; i >= 0; i--)
     {
         m_gameObjects[i]->update();
     }
@@ -72,7 +72,6 @@ void MenuState::render()
 void MenuState::s_menuToPlay()
 {
     TheGame::Instance()->getStateMachine()->changeState(new PlayState());
-    std::cout << "FAIL\n";
 }
 
 void MenuState::s_exitFromMenu()

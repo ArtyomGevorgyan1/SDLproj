@@ -11,6 +11,7 @@ const std::string PlayState::s_playID = "PLAY";
 
 void PlayState::update()
 {
+    std::cout << "FUCK\n";
     for(int i = 0; i < m_gameObjects.size(); i++)
     {
         m_gameObjects[i]->update();
@@ -19,6 +20,7 @@ void PlayState::update()
 
 void PlayState::render()
 {
+    std::cout << "Fuck\n";
     for(int i = 0; i < m_gameObjects.size(); i++)
     {
         m_gameObjects[i]->draw();

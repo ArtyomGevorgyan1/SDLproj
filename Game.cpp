@@ -23,8 +23,8 @@ Game::~Game()
 
 void Game::update()
 {
-
     m_pGameStateMachine->update();
+    std::cout << "im back\n";
 
 }
 
@@ -54,7 +54,7 @@ bool Game::init(const char* title, int xpos, int ypos, int width, int height, in
 
                 m_gameObjects.push_back(new Enemy(new LoaderParams(300, 300, 128, 82, "animate")));
 
-                TheInputHandler::Instance()->initialiseJoysticks();
+                //TheInputHandler::Instance()->initialiseJoysticks();
 
                 m_pGameStateMachine = new GameStateMachine();
                 m_pGameStateMachine->changeState(new MenuState());
@@ -94,7 +94,7 @@ bool Game::init(const char* title, int xpos, int ypos, int width, int height, in
 
 void Game::render()
 {
-
+    //std::cout << "rendering\n";
     SDL_RenderClear(m_pRenderer); // clear to the draw colour
 
     m_pGameStateMachine->render();

@@ -3,6 +3,7 @@
 //
 
 #include "GameStateMachine.h"
+#include <iostream>
 
 void GameStateMachine::pushState(GameState *pState)
 {
@@ -43,14 +44,19 @@ void GameStateMachine::changeState(GameState *pState)
 
     // initialise it
     m_gameStates.back()->onEnter();
+
+//    std::cout << "Chenged the stets\n";
 }
 
 void GameStateMachine::update()
+
 {
+    //std::cout << "here\n";
     if(!m_gameStates.empty())
     {
         m_gameStates.back()->update();
     }
+    std::cout << "back\n";
 }
 
 void GameStateMachine::render()
