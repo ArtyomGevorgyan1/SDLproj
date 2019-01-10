@@ -13,6 +13,8 @@
 #include "Player.h"
 #include "Enemy.h"
 
+#include "GameStateMachine.h"
+
 #include <vector>
 
 class Game
@@ -57,6 +59,8 @@ private:
     bool m_bRunning;
 
     std::vector<SDLGameObject*> m_gameObjects;
+
+    GameStateMachine* m_pGameStateMachine;
 
     // singleton part
     Game();

@@ -17,6 +17,9 @@ public:
     void draw() override;
     void update() override;
     void clean() override;
+
+private:
+    void handleInput();
 };
 
 #endif //UNTITLED1_PLAYER_H
