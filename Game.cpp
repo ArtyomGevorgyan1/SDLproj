@@ -23,13 +23,7 @@ Game::~Game()
 
 void Game::update()
 {
-    /*
-    for(std::vector<GameObject*>::size_type i = 0; i !=
-                                                   m_gameObjects.size(); i++)
-    {
-        m_gameObjects[i]->update();
-    }
-     */
+
     m_pGameStateMachine->update();
 
 }
@@ -103,15 +97,7 @@ void Game::render()
 
     SDL_RenderClear(m_pRenderer); // clear to the draw colour
 
-    // loop through our objects and draw them
-    /*
-    for(std::vector<GameObject*>::size_type i = 0; i !=
-                                                   m_gameObjects.size(); i++)
-    {
-        m_gameObjects[i]->draw();
-    } */
     m_pGameStateMachine->render();
-
 
     SDL_RenderPresent(m_pRenderer); // draw to the screen
 
@@ -125,25 +111,6 @@ void Game::clean()
     TheInputHandler::Instance()->clean();
     SDL_Quit();
 }
-
-/*
-void Game::handleEvents()
-{
-    SDL_Event event;
-    if(SDL_PollEvent(&event))
-    {
-        switch (event.type)
-        {
-            case SDL_QUIT:
-                m_bRunning = false;
-                break;
-
-            default:
-                break;
-        }
-    }
-}
-*/
 
 
 void Game::handleEvents()
