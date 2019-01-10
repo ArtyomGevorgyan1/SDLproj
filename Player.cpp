@@ -21,19 +21,16 @@ void Player::draw()
 void Player::update()
 {
 
-    // not use the joystick to control the Player
-    // if the joystick is not available, the sprite will stay on the screen and not move for now
-
     m_velocity.setX(0);
     m_velocity.setY(0);
 
     handleInput();
 
-    m_currentFrame = int(((SDL_GetTicks() / 100) % 6));
+    m_currentFrame = int(((SDL_GetTicks() / 100) % 5));
 
     SDLGameObject::update();
 
-    m_currentFrame = int(((SDL_GetTicks() / 100) % 6));
+    m_currentFrame = int(((SDL_GetTicks() / 100) % 5));
 
     //m_acceleration.setX(1);
 
@@ -43,17 +40,12 @@ void Player::clean()
 {
 }
 
-
 void Player::handleInput()
 {
+    Vector2D* target = TheInputHandler::Instance()
+            ->getMousePosition();
 
-    if(TheInputHandler::Instance()->getMouseButtonState(LEFT))
-    {
-        //m_velocity.setX(1);
+    m_velocity = *target - m_position;
 
-        Vector2D* vec = TheInputHandler::Instance()->getMousePosition();
-
-        m_velocity = (*vec - m_position) / 100;
-    }
-
+    m_velocity /= 50;
 }

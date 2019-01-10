@@ -13,8 +13,8 @@
 InputHandler* InputHandler::s_pInstance = 0;
 
 InputHandler::InputHandler() :  m_keystates(0),
-m_bJoysticksInitialised(false),
-m_mousePosition(new Vector2D(0,0))
+                                m_bJoysticksInitialised(false),
+                                m_mousePosition(new Vector2D(0,0))
 {
     // create button states for the mouse
     for(int i = 0; i < 3; i++)

@@ -104,4 +104,4 @@ private:
 typedef InputHandler TheInputHandler;
 
 
-#endif /* defined(__SDL_Game_Programming_Book__InputHandler__) */
+#endif

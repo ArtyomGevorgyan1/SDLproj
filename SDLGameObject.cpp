@@ -17,12 +17,44 @@ SDLGameObject::SDLGameObject(const LoaderParams* pParams) : GameObject(pParams),
     m_currentFrame = 1;
 }
 
+/*
 void SDLGameObject::draw()
 {
+    std::cout << "TRYING TO RENDER\n";
+
     TextureManager::Instance()->drawFrame(m_textureID,
                                           (int)m_position.getX(), (int)m_position.getY(), m_width,
                                           m_height, m_currentRow, m_currentFrame,
                                           TheGame::Instance()->getRenderer());
+    std::cout << "SUCCESS\n";
+
+}
+ */
+
+
+
+void SDLGameObject::draw()
+{
+    if(m_velocity.getX() > 0)
+    {
+        std::cout << "TRYING TO RENDER\n";
+        TextureManager::Instance()->drawFrame(m_textureID,
+                                              (Uint32)m_position.getX(), (Uint32)m_position.getY(),
+                                              m_width, m_height, m_currentRow, m_currentFrame,
+                                              TheGame::Instance()->getRenderer(),SDL_FLIP_HORIZONTAL);
+        std::cout << "SUCCESS\n";
+    }
+    else
+    {
+        std::cout << "TRYING TO RENDER\n";
+
+        TextureManager::Instance()->drawFrame(m_textureID,
+                                              (Uint32)m_position.getX(), (Uint32)m_position.getY(),
+                                              m_width, m_height, m_currentRow, m_currentFrame,
+                                              TheGame::Instance()->getRenderer());
+        std::cout << "SUCCESS\n";
+
+    }
 }
 
 void SDLGameObject::clean() {}
